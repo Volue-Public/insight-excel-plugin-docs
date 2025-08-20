@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
+  <Id>8ED65516-361F-4968-B44B-49C16E54EA88</Id>
+  <Version>1.4.0</Version>
+  <ProviderName>Volue Insight</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Volue Insight API" />
+  <Description DefaultValue="This gives you access to the Volue Insight's power market forecasts and actuals." />
+  <IconUrl DefaultValue="https://api.volueinsight.com/excel-plugin/images/manifest_icon.png"/>
+  <HighResolutionIconUrl DefaultValue="https://api.volueinsight.com/excel-plugin/images/manifest_icon_hires.png"/>
+  <SupportUrl DefaultValue="https://wattsight-excel-plugin.readthedocs-hosted.com/_/sharing/132ily1ure6aw6cwjv9zijupt" />
+  <AppDomains>
+    <AppDomain>https://auth.wattsight.com</AppDomain>
+    <AppDomain>https://app.wattsight.com</AppDomain>
+    <AppDomain>https://auth.volueinsight.com</AppDomain>
+    <AppDomain>https://app.volueinsight.com</AppDomain>
+    <AppDomain>https://auth.identity.volue.com</AppDomain>
+    <AppDomain>https://volueidentity.b2clogin.com</AppDomain>
+    <AppDomain>https://login.microsoftonline.com</AppDomain>
+    <AppDomain>https://accounts.google.com</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="BindingEvents" />
+      <Set Name="DocumentEvents" />
+      <Set Name="TableBindings" />
+      <Set Name="TableCoercion" />
+      <Set Name="ExcelApi" MinVersion="1.1" />
+    </Sets>
+    <Methods>
+      <Method Name="TableBinding.setFormatsAsync" />
+    </Methods>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://api.volueinsight.com/excel-plugin/index.html" />
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="VolueApi.GetStarted.Title"/>
+            <Description resid="VolueApi.GetStarted.Description"/>
+            <LearnMoreUrl resid="VolueApi.GetStarted.LearnMUrl"/>
+          </GetStarted>
+          <FunctionFile resid="VolueApi.DesktopFunctionF.Url" />
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="VolueApi.Group1">
+                <Label resid="VolueApi.Group1Label" />
+                <Icon>
+                  <bt:Image size="16" resid="VolueApi.tpicon_16x16" />
+                  <bt:Image size="32" resid="VolueApi.tpicon_32x32" />
+                  <bt:Image size="80" resid="VolueApi.tpicon_80x80" />
+                </Icon>
+                <Control xsi:type="Button" id="VolueApi.TaskpaneButton">
+                  <Label resid="VolueApi.TaskpaneButton.Label" />
+                  <Supertip>
+                    <Title resid="VolueApi.TaskpaneButton.Label" />
+                    <Description resid="VolueApi.TaskpaneButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="VolueApi.tpicon_16x16" />
+                    <bt:Image size="32" resid="VolueApi.tpicon_32x32" />
+                    <bt:Image size="80" resid="VolueApi.tpicon_80x80" />
+                  </Icon>
+                   <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>Office.AutoShowTaskpaneWithDocument</TaskpaneId>
+                    <SourceLocation resid="VolueApi.Taskpane.Url" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="VolueApi.tpicon_16x16" DefaultValue="https://api.volueinsight.com/excel-plugin/images/manifest_icon.png" />
+        <bt:Image id="VolueApi.tpicon_32x32" DefaultValue="https://api.volueinsight.com/excel-plugin/images/manifest_icon.png" />
+        <bt:Image id="VolueApi.tpicon_80x80" DefaultValue="https://api.volueinsight.com/excel-plugin/images/manifest_icon.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="VolueApi.DesktopFunctionF.Url" DefaultValue="https://api.volueinsight.com/excel-plugin/functionfile.html" />
+        <bt:Url id="VolueApi.Taskpane.Url" DefaultValue="https://api.volueinsight.com/excel-plugin/index.html" />
+        <bt:Url id="VolueApi.GetStarted.LearnMUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="VolueApi.TaskpaneButton.Label" DefaultValue="Show Taskpane" />
+        <bt:String id="VolueApi.Group1Label" DefaultValue="Volue Insight" />
+        <bt:String id="VolueApi.GetStarted.Title" DefaultValue="Get started fetching data from Volue Insight!" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="VolueApi.TaskpaneButton.Tooltip" DefaultValue="Click to Show the Volue Insight Taskpane" />
+        <bt:String id="VolueApi.GetStarted.Description" DefaultValue="Go to the HOME tab and click the 'Show Taskpane' button above 'Volue Insight' to get started." />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
